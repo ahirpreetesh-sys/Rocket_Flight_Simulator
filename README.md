@@ -34,9 +34,9 @@ This models contain rocket flight path during and after its powered ascent. It c
 - Enter thrust (N) 5000
 - Enter burn time (s) 4
 - Enter launch angle (degrees) 85
-- Time(s)   Altitude(m)    Downrange(m)   Speed(m/s)  
+- Time(s) |Altitude(m) |Downrange(m)|Speed(m/s)  
 - ------------------------------------------------------------
-- 0.00      0.000          0.000          0.000       
+- 0.00    | 0.000      |   0.000    |    0.000       
 - 2.0       131.71         18.60          119.80      
 - 4.0       485.82         75.99          216.28      
 - 6.0       812.34         134.34         132.13      
