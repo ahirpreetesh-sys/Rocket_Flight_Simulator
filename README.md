@@ -48,9 +48,8 @@ This models contain rocket flight path during and after its powered ascent. It c
 | 28.0 | 572.52 | 412.96 | 80.86 |
 | 30.0 | 407.23 | 423.52 | 84.09 |
 | 32.0 | 236.65 | 432.15 | 86.24 |
-| 34.0 | 62.56 | 439.16 | 87.67 |
-
-- 34.0      62.56          439.16         87.67       
+| 34.0 | 62.56 | 439.16 | 87.67 |   
 - **************************************************
-Crash! rocket hit the ground at 34.8 seconds
-gine thrust curves, structural constraints, guidance, or detailed atmospheric effects. Results are for coursework and software demonstrations only.
+Crash! rocket hit the ground at 34.8 seconds gine thrust curves, structural constraints, 
+
+guidance, or detailed atmospheric effects. Results are for coursework and software demonstrations only.
