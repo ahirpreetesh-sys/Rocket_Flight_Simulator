@@ -3,10 +3,10 @@
 ## OVERVIEW OF PROJECT
 This models contain rocket flight path during and after its powered ascent. It computes position (x,y), velocity, drag forces, and acceleration step-by-step using numerical integration with a time step of 0.1 seconds
 ## Features
-Customizable Inputs: It user inputs for rocket mass,fuel mass,engine thrust,burn time, and launch angle.
-Realistic Physics Forces: Accounts for gravity (9.8 m/s²),atmospheric density (1.2 kg/m³) ,and aerodynamic drag.
-Dynamic Mass Reduction: Simulates fuel consumption and weight reduction when fuel is burning.
-Real-time Trajectory Table: Prints formatted time-stamped columns for time ,altitude ,downrange and speed.
+- Customizable Inputs: It user inputs for rocket mass,fuel mass,engine thrust,burn time, and launch angle.
+- Realistic Physics Forces: Accounts for gravity (9.8 m/s²),atmospheric density (1.2 kg/m³) ,and aerodynamic drag.
+- Dynamic Mass Reduction: Simulates fuel consumption and weight reduction when fuel is burning.
+- Real-time Trajectory Table: Prints formatted time-stamped columns for time ,altitude ,downrange and speed.
 ## Technologies/Tools Used
 Python 3.x: Core programming language.
 Math Library: Built-in Python math module for trigonometric and square root calculations.
