@@ -1,83 +1,85 @@
 import math
 
-g = 9.8
-rho = 1.2
+MassR=int(input("Enter rocket mass (kg) "))
+MassF=int(input("Enter fuel mass (kg) "))
+Thrust=int(input("Enter thrust (N) "))
+BurnT=int(input("Enter burn time (s) "))
+DragCo=0.5
+g=9.8
+rho=1.2
+CrossA=0.2
+LaunchA=int(input("Enter launch angle (degrees) "))
 
-# Rocket specs
-mass_r=int(input("Enter rocket mass (kg) "))
-mass_f=int(input("Enter fuel mass (kg) "))
-thrust=int(input("Enter thrust (N) "))
-burn_t=int(input("Enter burn time (s) "))
-drag_co=0.5
-cross_a=0.2
-launch_a=int(input("Enter launch angle (degrees) "))
+                                                                                                    #simulation setting
 
-# Simulation settings
 dt=0.1
-max_t=100
-fuel_b_r=mass_f/burn_t
-angle_rad=math.radians(launch_a)
+MaxT=100
+Fuel_b_r=MassF/BurnT
+AngleRad=math.radians(LaunchA)
 
-# INITIAL CONSTANTS
+                                                                                                    #initial constants
+
 x=0
 y=0
-vx=0  # Fixed: Defined velocity X
-vy=0  # Fixed: Defined velocity Y
-time=0
-current_f=mass_f
-pitch_a=angle_rad
+ax=0  
+ay=0  
+Time=0
+CurrentF=MassF
+PitchA=AngleRad
 steps=0
 
-print(f"{'time(s)':<10}{'altitude(m)':<15}{'downrange(m)':<15}{'speed(m/s)':<12}")
+print(f"{'Time(s)':<10}{'Altitude(m)':<15}{'Downrange(m)':<15}{'Speed(m/s)':<12}")
 print("-"*60)
-print(f"{time:<10.1f}{y:<15.2f}{x:<15.2f}{0.0:<12.2f}")
+print(f"{Time:<10.2f}{y:<15.3f}{x:<15.3f}{0:<12.3f}")
 
-# THE SIMULATION LOOP
-while(time<=max_t):
-    # Calculate speed and pitch from VELOCITY (vx, vy)
-    v_mg=math.sqrt(vx**2+vy**2)
-    if(v_mg>0.1):
-        pitch_a=math.atan2(vy,vx)
+                                                                                                    #simulation loop
+
+while(Time<=MaxT):
+                                                                                                    #calculation
+    VMg=math.sqrt(ax**2+ay**2)
+    if(VMg>0.1):
+        PitchA=math.atan2(ay,ax)
     else:
-        pitch_a=angle_rad
-
-    # Fuel burn logic
-    if (time<burn_t and current_f>0):  # Fixed: Changed <= to < to perfectly match fuel burn time
-        current_th =thrust
-        current_f -=fuel_b_r*dt
-        current_f=max(current_f,0)
+        PitchA=AngleRad
+                                                                                                    #condition for fuel
+    if ((Time<BurnT) and (CurrentF>0)):
+        current_th=Thrust
+        CurrentF -=Fuel_b_r*dt
+        CurrentF=max(CurrentF,0)
     else:
         current_th=0
-    total_m =current_f+mass_r
+    TotalM=CurrentF+MassR
+    FDrag=0.5*rho*(VMg**2)*DragCo*CrossA                                                            #force
 
-    # Forces
-    f_drag =0.5*rho*(v_mg**2)*drag_co*cross_a
+                                                                                                    #vector component
 
-    # Vector Components (Drag opposes the direction of velocity)
-    thrust_x =current_th*math.cos(pitch_a)
-    thrust_y =current_th*math.sin(pitch_a)
-    drag_x =f_drag*math.cos(pitch_a)
-    drag_y =f_drag*math.sin(pitch_a)
+    thrust_x =current_th*math.cos(PitchA)
+    thrust_y =current_th*math.sin(PitchA)
+    dragX =FDrag*math.cos(PitchA)
+    dragY =FDrag*math.sin(PitchA)
 
-    # Net Accelerations
-    ax =(thrust_x - drag_x)/total_m
-    ay =(thrust_y - drag_y -(total_m * g))/total_m
+                                                                                                    #net acceleration
 
-    # Update Velocities (Fixed variable names)
-    vx +=ax*dt
-    vy +=ay*dt
+    bx=(thrust_x-dragX)/TotalM
+    by=(thrust_y-dragY-(TotalM*g))/TotalM
 
-    # Update Positions (Fixed: Use velocity vx/vy instead of acceleration ax/ay)
-    x +=vx*dt
-    y +=vy*dt
+                                                                                                    #new velocity
 
-    time +=dt
-    steps +=1
+    ay+=by*dt
+    ax+=bx*dt
 
-    if (steps%int(2/dt)==0):
-        print(f"{time:<10.1f}{y:<15.2f}{x:<15.2f}{v_mg:<12.2f}")
+                                                                                                    #new position
 
-    if y<0 and time>dt:
-        print("*" *50)
-        print(f"Crash! Rocket hit the ground at {time:.1f} seconds")
+    x+=ax*dt
+    y+=ay*dt
+
+    Time+=dt
+    steps+=1
+
+    if(steps%int(2/dt)==0):
+        print(f"{Time:<10.1f}{y:<15.2f}{x:<15.2f}{VMg:<12.2f}")
+
+    if((y<0) and (Time>dt)):
+        print("*"*50)
+        print(f"Crash! rocket hit the ground at {Time:.1f} seconds")
         break
