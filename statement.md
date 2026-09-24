@@ -7,22 +7,22 @@
 - Environmental Forces: Continuous calculation of gravitational pull acting on the rocket.
 - As the simulation runs, it generates a step-by-step, it store value like altitude, downrange displacement, speed, and time. The program runs continuously until it again come at y=0 time threshold or encounters a crash event..
 
-## Scope
-# In-Scope1D & 2D
+# Scope
+## In-Scope1D & 2D
 - Launch Physics: Accurate handling of vertical or angled launches using basic trigonometry .
 - Mass Variances: Live tracking of decaying total mass as a function of the fuel burn rate over the declared burn time.
 - Environmental Forces: Dynamic calculation of aerodynamic drag forces based on surface cross-sectional area, drag coefficients, air density.
 - Vectorized Decompositions: Resolution of net acceleration in horizontal and vertical planes.
-# Out-of-Scope3D
+## Out-of-Scope3D
 - Trajectory & Wind Vectors: Side-winds, wind shears, and rotational movements are excluded.
 - Dynamic Altitudinal Mechanics: Atmospheric density (rho) is treated as a fixed sea-level constant (1.2 kg/m³) rather than a gradient scale that drops off with altitude.
 - Advanced Integration Methods: High-precision solvers (e.g., Runge-Kutta RK4) are outside the core implementation; calculations strictly use standard dt interval Euler integration steps.
-## Target Users
+# Target Users
 - Physics & Aerospace Students: Individuals looking to understand how thrust, mass loss, gravity, and drag interact in flight mechanics.
 - Hobbyist Rocketry Enthusiasts: Amateur rocketeers seeking a swift, code-accessible baseline tool to predict their model rocket’s performance criteria before flight tests.
 - Coding Instructors & Beginners: Educators searching for real-world programmatic execution examples showcasing math applications, loops, and conditional structures
 
-## High-Level Features
+# High-Level Features
 - Interactive Parameter Initialization: Allows users to input customized rocket structural constraints (dry mass, fuel mass, thrust capability, burn duration and launch angles).
 - Dynamic Flight State Machine: Evaluates conditions sequentially for operational stages like powered flight (active thrust) and unpowered coasting (ballistic arc after fuel depletion).
 - Auto-Adjusting Pitch Profiling: Reorientates thrust vectors and drag dynamics natively based on actual direction vectors (atan2 calculations of directional velocity).
