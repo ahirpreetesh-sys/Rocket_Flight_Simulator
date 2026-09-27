@@ -7,6 +7,11 @@ This models contain rocket flight path during and after its powered ascent. It c
 - Realistic Physics Forces: Accounts for gravity (9.8 m/s²),atmospheric density (1.2 kg/m³) ,and aerodynamic drag.
 - Dynamic Mass Reduction: Simulates fuel consumption and weight reduction when fuel is burning.
 - Real-time Trajectory Table: Prints formatted time-stamped columns for time ,altitude ,downrange and speed.
+## Project Structure
+- The codebase is split into three main components:
+- rocket.py: Contains the rocket class, which manages structural mass, fuel capacity, rate of fuel burning and current thrust.
+- physics.py: Contains utility functions (calculateDrag and computeAccelerations) that solve the equations of motion for each time .
+- main.py: The entry point script that handles user inputs, manages the execution loop, updates physics states, and outputs .
 ## Technologies/Tools Used
 - Python 3.x: Core programming language.
 - Math Library: Built-in Python math module for trigonometric and square root calculations.
@@ -50,6 +55,4 @@ This models contain rocket flight path during and after its powered ascent. It c
 | 32.0 | 236.65 | 432.15 | 86.24 |
 | 34.0 | 62.56 | 439.16 | 87.67 |   
 - **************************************************
-Crash! rocket hit the ground at 34.8 seconds gine thrust curves, structural constraints, 
-
-guidance, or detailed atmospheric effects. Results are for coursework and software demonstrations only.
+Crash! rocket hit the ground at 34.8 seconds gine thrust curves, structural constraints, guidance, or detailed atmospheric effects.
