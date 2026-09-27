@@ -1,12 +1,12 @@
 import math
 from rocket import Rocket
-from physics import calculatDrag,computeAccelerations
+from physics import calculateDrag,computeAccelerations
 
-def runSimulation:
+def runSimulation():
 
     MassR=int(input("Enter rocket mass (kg) "))
     MassF=int(input("Enter fuel mass (kg) "))
-    Thrust_____Val=int(input("Enter thrust (N) "))
+    ThrustVal=int(input("Enter thrust (N) "))
     BurnT=int(input("Enter burn time (s) "))
     DragCo=0.5
     g=9.8
@@ -20,7 +20,7 @@ def runSimulation:
     MaxT=100
     
     AngleRad=math.radians(LaunchA)
-    rocket=Rocket(MassR,MassF,Thrust_____Val,BurnT)
+    rocket=Rocket(MassR,MassF,ThrustVal,BurnT)
 
                                                                                                     #initial constants
 
@@ -46,8 +46,8 @@ def runSimulation:
             PitchA=math.atan2(ay,ax)
         else:
             PitchA=AngleRad
-        current_th=rocket.get_Thrust(Time)
-        rocket.update_fule(dt)      
+        current_th=rocket.GetThrust(Time)
+        rocket.update_fuel(dt)      
 
         FDrag=calculateDrag(VMg,DragCo,CrossA,rho)
         bx,by=computeAccelerations(current_th,PitchA,FDrag,rocket.TotalMass,g)
