@@ -1,7 +1,7 @@
 class Rocket:
     def __init__(self,MassR,MassF,Thrust,BurnT):
         self.MassR=MassR
-        self.MassF=MassR
+        self.MassF=MassF
         self.MaxThrust=Thrust
         self.BurnT=BurnT
         self.CurrentF=MassF
@@ -12,7 +12,7 @@ class Rocket:
         return (self.CurrentF+self.MassR)
 
     def GetThrust(self,Time):
-        if((time<self.BurnT) and (self.CurrentF>0)):
+        if((Time<self.BurnT) and (self.CurrentF>0)):
             return (self.MaxThrust)
         return 0
 
