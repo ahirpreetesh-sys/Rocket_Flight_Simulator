@@ -21,7 +21,11 @@
 - Physics & Aerospace Students: Individuals looking to understand how thrust, mass loss, gravity, and drag interact in flight mechanics.
 - Hobbyist Rocketry Enthusiasts: Amateur rocketeers seeking a swift, code-accessible baseline tool to predict their model rocket’s performance criteria before flight tests.
 - Coding Instructors & Beginners: Educators searching for real-world programmatic execution examples showcasing math applications, loops, and conditional structures
-
+# File Structure
+The codebase is split into three modular scripts.
+- rocket.py: Defines the object blueprint for the vehicle. It manages mass, remaining fuel reserves, fuel burning rates, and structural engine states.
+- physics.py: Houses the mathematical models for fluid dynamics and Newtonian mechanics. It handles the drag calculations and solves multi-axis force vectors into acceleration.
+- main.py: The central driver script. It gathers initial structural parameters from user input, instantiates the simulation environment, runs the primary step-loop.
 # High-Level Features
 - Interactive Parameter Initialization: Allows users to input customized rocket structural constraints (dry mass, fuel mass, thrust capability, burn duration and launch angles).
 - Dynamic Flight State Machine: Evaluates conditions sequentially for operational stages like powered flight (active thrust) and unpowered coasting (ballistic arc after fuel depletion).
